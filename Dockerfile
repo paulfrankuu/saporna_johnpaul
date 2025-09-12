@@ -34,4 +34,5 @@ RUN if [ -f composer.json ]; then composer install || true; fi
 # Expose Apache port
 EXPOSE 80
 
+RUN mkdir -p /var/www/html/writable/sessions && chmod -R 777 /var/www/html/writable/sessions
 CMD ["apache2-foreground"]
