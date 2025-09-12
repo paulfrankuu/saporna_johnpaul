@@ -3,7 +3,7 @@ FROM php:8.1-apache
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Install required PHP extensions
+# Install required PHP extensions for MySQL
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Copy project files to container
