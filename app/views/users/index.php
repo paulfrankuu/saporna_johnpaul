@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Directory</title>
-  <link rel="stylesheet" href="<?=base_url();?>public/style.css">
+  <link rel="stylesheet" href="<?=base_url();?>/public/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
@@ -23,6 +23,18 @@
       <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold text-white">🧑‍🤝‍🧑 User Directory</h1>
       </div>
+      <!-- Search Bar -->
+<form method="get" action="<?=site_url()?>" class="search-bar">
+  <input 
+    type="text" 
+    name="q" 
+    value="<?=html_escape($_GET['q'] ?? '')?>" 
+    placeholder="Search student..." 
+    class="search-input">
+  <button type="submit" class="search-btn">
+    <i class="fa fa-search"></i>
+  </button>
+</form>
 
       <!-- Table -->
       <div class="overflow-x-auto rounded-xl shadow">
@@ -59,6 +71,12 @@
           </tbody>
         </table>
       </div>
+       <!-- Pagination -->
+<div class="mt-4 flex justify-center">
+  <div class="pagination flex space-x-2">
+      <?=$page ?? ''?>
+  </div>
+</div>
 
       <!-- Button -->
       <div class="mt-5">
